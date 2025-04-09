@@ -162,7 +162,7 @@ if "messages" not in st.session_state:
 # איתחול הודעת פתיחה לפי הכלים שנבחרו
 if not st.session_state.messages:
     if "שיחה כללית" in selected_tools and len(selected_tools) == 1:
-        st.session_state.messages = [{"role": "assistant", "content": "ברוך הבא לשיחה כללית על כלי AI! אשמח לענות על שאלות בנושא כלי בינה מלאכותית, שימושים שלהם, והשוואות ביניהם. במה אוכל לעזור לך היום? 👋"}]
+        st.session_state.messages = [{"role": "assistant", "content": "הי,  \nשמי ברק הראל ואני העוזר האישי של שגיא בר און.  \nאשמח לענות על שאלות בנושא ארגז כלי בינה מלאכותית ששגיא המליץ, שימושים שלהם, והשוואות ביניהם. אז במה אוכל לעזור לך היום? 👋"}]
     elif "שיחה כללית" in selected_tools:
         tools_str = ", ".join([tool for tool in selected_tools if tool != "שיחה כללית"])
         st.session_state.messages = [{"role": "assistant", "content": f"ברוך הבא! אשמח לשוחח על נושאים כלליים בתחום ה-AI וגם על הכלים הספציפיים: {tools_str}. אתה יכול לשאול על יכולות, הבדלים בין כלים, מקרי שימוש או כל נושא אחר 👋"}]

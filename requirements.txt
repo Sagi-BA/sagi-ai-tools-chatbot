@@ -1,11 +1,12 @@
 streamlit 
-streamlit-chat
-# streamlit-extras
 python-dotenv
-aiohttp #This is for telegram
 requests
-asyncio
-gradio_client
-deep_translator
 groq
-pillow
+
+# streamlit-chat
+# streamlit-extras
+# aiohttp #This is for telegram
+# asyncio
+# gradio_client
+# deep_translator
+# pillow
