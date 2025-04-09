@@ -48,6 +48,17 @@ CONFIG_FILE = DATA_DIR / "config.json"
 # קריאת כתובת ה-URL מקובץ .env
 AI_TOOLS_URL = os.getenv("AI_TOOLS_URL", "https://thewitcher-sagi-ai-tools.static.hf.space/tools.json")
 
+def hide_streamlit_header_footer():
+    hide_st_style = """
+    <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+    </style>
+    """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # פונקציה לבדיקה האם הקובץ התעדכן היום
 def is_file_updated_today():
     if not CONFIG_FILE.exists():
@@ -131,6 +142,7 @@ def prepare_conversation_history(messages, max_history=MAX_HISTORY_MESSAGES):
     
     return conversation_history
 
+hide_streamlit_header_footer()        
 # טעינת רשימת הכלים
 tools = load_tools()
 
