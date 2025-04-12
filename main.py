@@ -50,11 +50,17 @@ AI_TOOLS_URL = os.getenv("AI_TOOLS_URL", "https://thewitcher-sagi-ai-tools.stati
 
 def hide_streamlit_header_footer():
     hide_st_style = """
-    <style>
+     <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
-        #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+        .block-container {
+            padding-top: 0rem !important;
+            padding-bottom: 0rem !important;
+        }
+        .stChatMessage, .stChatInput {
+            margin-bottom: 0rem !important;
+        }
     </style>
     """
     st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -147,10 +153,10 @@ hide_streamlit_header_footer()
 tools = load_tools()
 
 # הצגת מידע על הכלים
-if tools:
-    st.info(f"נמצאו {len(tools)} כלים זמינים להתייעצות")
-else:
-    st.warning("לא נמצאו כלים זמינים. בדוק את החיבור לאינטרנט ונסה שוב.")
+# if tools:
+#     st.info(f"נמצאו {len(tools)} כלים זמינים להתייעצות")
+# else:
+#     st.warning("לא נמצאו כלים זמינים. בדוק את החיבור לאינטרנט ונסה שוב.")
 
 # יצירת בחירת כלים מרובים
 tool_options = ["שיחה כללית"] + tools
